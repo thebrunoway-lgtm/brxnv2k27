@@ -122,10 +122,6 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
     overflow: hidden;
 }
 
-/* ── Vimeo portrait → landscape scaling ──
-   Video ratio: 1 : 1.806 (portrait).
-   Set width = 100vw → height = 180.6vw, always taller than 100vh.
-   Centre inside overflow:hidden wrapper.                        */
 .hero-vimeo-wrap {
     position: absolute; inset: 0;
     overflow: hidden; z-index: 0;
@@ -133,17 +129,14 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
     filter: grayscale(1) contrast(1.1);
     opacity: 0.6;
 }
-.hero-vimeo-sizer {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
-    width: max(100vw, 55.4vh);
-    height: max(180.6vw, 100vh);
-}
-.hero-vimeo-sizer iframe {
+.bg-video {
     position: absolute; inset: 0;
-    width: 100%; height: 100%; border: none;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
+
+.vid-mobile { display: none; }
 
 .hero-overlay {
     position: absolute; inset: 0; z-index: 1; pointer-events: none;
@@ -518,13 +511,6 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
     position: absolute; inset: 0; overflow: hidden; z-index: 0;
     pointer-events: none; filter: grayscale(1) opacity(.6) contrast(1.1);
 }
-.footer-vimeo-sizer {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
-    width: max(100vw, 44.4vh);
-    height: max(180.6vw, 80vh);
-}
-.footer-vimeo-sizer iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 .footer-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(0,0,0,.52); pointer-events: none; }
 .footer-body { position: relative; z-index: 2; text-align: center; }
 .footer-title {
@@ -594,6 +580,9 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
 }
 
 @media (max-width: 600px) {
+    .vid-desktop { display: none; }
+    .vid-mobile  { display: block; }
+
     .hero-bar {
         padding: 0 5% max(2.5rem, env(safe-area-inset-bottom, 2rem));
         gap: 1rem;

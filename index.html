@@ -20,16 +20,15 @@
          ═══════════════════════════════════════════════════ -->
     <header class="hero" id="top">
 
-        <!-- Vimeo portrait video → landscape background fix -->
-        <div class="hero-vimeo-wrap">
-            <div class="hero-vimeo-sizer">
-                <iframe
-                    src="https://player.vimeo.com/video/1190591826?badge=0&autopause=0&background=1&autoplay=1&loop=1&muted=1&player_id=hero&app_id=58479"
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                    title="Hero background">
-                </iframe>
-            </div>
+        <div class="hero-vimeo-wrap vid-desktop">
+            <video class="bg-video" autoplay loop muted playsinline>
+                <source src="hero-desk.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-vimeo-wrap vid-mobile">
+            <video class="bg-video" autoplay loop muted playsinline>
+                <source src="hero-mobile.mp4" type="video/mp4">
+            </video>
         </div>
 
         <div class="hero-overlay" aria-hidden="true"></div>
@@ -270,15 +269,15 @@
          ═══════════════════════════════════════════════════ -->
     <footer class="portfolio-footer" id="portfolio" aria-label="Portfolio section">
 
-        <div class="footer-vimeo-wrap">
-            <div class="footer-vimeo-sizer">
-                <iframe
-                    src="https://player.vimeo.com/video/1190592179?badge=0&autopause=0&background=1&autoplay=1&loop=1&muted=1&player_id=footer&app_id=58479"
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                    title="Portfolio background">
-                </iframe>
-            </div>
+        <div class="footer-vimeo-wrap vid-desktop">
+            <video class="bg-video" autoplay loop muted playsinline>
+                <source src="port-desk.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="footer-vimeo-wrap vid-mobile">
+            <video class="bg-video" autoplay loop muted playsinline>
+                <source src="port-mobile.mp4" type="video/mp4">
+            </video>
         </div>
 
         <div class="footer-overlay" aria-hidden="true"></div>
@@ -290,7 +289,6 @@
 
     </footer>
 
-    <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
