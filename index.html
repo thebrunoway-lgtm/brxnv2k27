@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRXNV — Art Director</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Film grain -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════════════════ -->
+    <header class="hero" id="top">
+
+        <!-- Vimeo portrait video → landscape background fix -->
+        <div class="hero-vimeo-wrap">
+            <div class="hero-vimeo-sizer">
+                <iframe
+                    src="https://player.vimeo.com/video/1190591826?badge=0&autopause=0&background=1&autoplay=1&loop=1&muted=1&player_id=hero&app_id=58479"
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                    title="Hero background">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <!-- Bottom bar: title left + info right -->
+        <div class="hero-bar">
+
+            <h1 class="hero-title" aria-label="BRXNV">
+                <span class="hl" data-char="B" style="--i:0">B</span><span class="hl" data-char="R" style="--i:1">R</span><span class="hl" data-char="X" style="--i:2">X</span><span class="hl" data-char="N" style="--i:3">N</span><span class="hl" data-char="V" style="--i:4">V</span>
+            </h1>
+
+            <div class="hero-right">
+                <div class="hero-sub">
+                    <p class="sub-line" style="--i:0">ART DIRECTOR</p>
+                    <p class="sub-line" style="--i:1">AI-ENHANCED CREATIVE WORKFLOW</p>
+                    <p class="sub-line" style="--i:2">BRANDING · DIGITAL · HEALTH BRANDS</p>
+                </div>
+                <a href="#contact" class="hero-cta sub-line" style="--i:3">
+                    <span>bora bater um papo</span>
+                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+                        <path d="M1 10L10 1M10 1H2.5M10 1V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true">
+            <div class="scroll-line"></div>
+            <span>SCROLL</span>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════
+         BRANDS MARQUEE
+         ═══════════════════════════════════════════════════ -->
+    <section class="brands-marquee" aria-label="Clients">
+        <div class="marquee-track">
+            <div class="marquee-inner">
+
+                <img src="assets/amil.png" alt="Amil" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/sakura.png" alt="Sakura" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/nutrata.png" alt="Nutrata" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/jasmine.png" alt="Jasmine" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/notco.png" alt="NotCo" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/herbalife.png" alt="Herbalife" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/mae terra.png" alt="Mãe Terra" class="brand-logo-img">
+                <span class="sep">·</span>
+
+                <!-- DUPLICATE for seamless loop -->
+                <img src="assets/amil.png" alt="Amil" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/sakura.png" alt="Sakura" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/nutrata.png" alt="Nutrata" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/jasmine.png" alt="Jasmine" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/notco.png" alt="NotCo" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/herbalife.png" alt="Herbalife" class="brand-logo-img">
+                <span class="sep">·</span>
+                <img src="assets/mae terra.png" alt="Mãe Terra" class="brand-logo-img">
+                <span class="sep">·</span>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ABOUT & EXPERIENCE
+         ═══════════════════════════════════════════════════ -->
+    <section class="about-exp" id="about" aria-label="About and experience">
+
+        <div class="about-block reveal-left">
+            <div class="section-box">
+                <div class="corner tl" aria-hidden="true"></div>
+                <div class="corner tr" aria-hidden="true"></div>
+                <div class="corner bl" aria-hidden="true"></div>
+                <div class="corner br" aria-hidden="true"></div>
+                <div class="section-box-head">
+                    <h2>ABOUT</h2>
+                    <span class="setup-tag">Apresentação</span>
+                </div>
+                <div class="about-copy">
+                    <p>Nasci em 95 — o suficiente pra ter visto muita coisa mudar, pouco pra achar que já sei tudo.</p>
+                    <p>Sou negro, publicitário, designer. Essas três coisas juntas dizem mais sobre como eu enxergo o mundo do que qualquer lista de habilidades. Acredito que os melhores projetos nascem de quem está disposto a <strong>aprender</strong> com as pessoas ao redor — não só com referências, mas com <strong>contextos reais</strong>. É assim que trabalho: <strong>ouvindo</strong> antes de <strong>criar</strong>, <strong>questionando</strong> antes de executar. Na prática, desenvolvo soluções visuais para comunicação digital, campanhas e projetos audiovisuais. Conectando estética e narrativa, com <strong>consistência</strong> de marca e propósito em cada entrega.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="exp-block reveal-right">
+            <div class="section-box">
+                <div class="corner tl" aria-hidden="true"></div>
+                <div class="corner tr" aria-hidden="true"></div>
+                <div class="corner bl" aria-hidden="true"></div>
+                <div class="corner br" aria-hidden="true"></div>
+                <div class="section-box-head">
+                    <h2>LAST EXP</h2>
+                    <span class="setup-tag">Experiências</span>
+                </div>
+                <div class="exp-list">
+                    <div class="exp-item" style="--i:0" data-pct="100">
+                        <div class="exp-row">
+                            <strong>AMIL</strong>
+                            <span class="exp-role">DIRETOR DE ARTE</span>
+                        </div>
+                        <p class="exp-date">2025 — ATUAL</p>
+                        <div class="exp-bar"><div class="exp-fill"></div></div>
+                    </div>
+                    <div class="exp-item" style="--i:1" data-pct="80">
+                        <div class="exp-row">
+                            <strong>E4 AGÊNCIA</strong>
+                            <span class="exp-role">DESIGNER</span>
+                        </div>
+                        <p class="exp-date">2022 — 2024</p>
+                        <div class="exp-bar"><div class="exp-fill"></div></div>
+                    </div>
+                    <div class="exp-item" style="--i:2" data-pct="60">
+                        <div class="exp-row">
+                            <strong>CASTEL ODONTO</strong>
+                            <span class="exp-role">DESIGNER</span>
+                        </div>
+                        <p class="exp-date">2021 — 2022</p>
+                        <div class="exp-bar"><div class="exp-fill"></div></div>
+                    </div>
+                    <div class="exp-item" style="--i:3" data-pct="40">
+                        <div class="exp-row">
+                            <strong>FACULDADE CTA</strong>
+                            <span class="exp-role">DESIGNER</span>
+                        </div>
+                        <p class="exp-date">2020 — 2020</p>
+                        <div class="exp-bar"><div class="exp-fill"></div></div>
+                    </div>
+                    <div class="exp-item" style="--i:4" data-pct="30">
+                        <div class="exp-row">
+                            <strong>RECRIATIVI MKT</strong>
+                            <span class="exp-role">ASSISTENTE CRIAÇÃO</span>
+                        </div>
+                        <p class="exp-date">2016 — 2018</p>
+                        <div class="exp-bar"><div class="exp-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SOFTWARE ICONS
+         ═══════════════════════════════════════════════════ -->
+    <div class="h-rule"></div>
+
+    <section class="softwares reveal-up" id="skills" aria-label="Tools">
+        <div class="section-label">
+            <span class="setup-tag">Ferramentas</span>
+        </div>
+        <div class="sw-grid">
+            <button class="sw-icon" data-name="Photoshop"    data-color="#31A8FF" aria-label="Adobe Photoshop">
+                <span class="sw-label">Ps</span>
+                <div class="sw-glow"></div>
+            </button>
+            <button class="sw-icon" data-name="Illustrator"  data-color="#FF9A00" aria-label="Adobe Illustrator">
+                <span class="sw-label">Ai</span>
+                <div class="sw-glow"></div>
+            </button>
+            <button class="sw-icon" data-name="InDesign"     data-color="#FF3366" aria-label="Adobe InDesign">
+                <span class="sw-label">Id</span>
+                <div class="sw-glow"></div>
+            </button>
+            <button class="sw-icon" data-name="After Effects" data-color="#9898FF" aria-label="Adobe After Effects">
+                <span class="sw-label">Ae</span>
+                <div class="sw-glow"></div>
+            </button>
+            <button class="sw-icon" data-name="Premiere Pro" data-color="#EA77FF" aria-label="Adobe Premiere Pro">
+                <span class="sw-label">Pr</span>
+                <div class="sw-glow"></div>
+            </button>
+            <button class="sw-icon" data-name="Adobe XD"     data-color="#FF61F6" aria-label="Adobe XD">
+                <span class="sw-label">Xd</span>
+                <div class="sw-glow"></div>
+            </button>
+            <button class="sw-icon" data-name="Figma"        data-color="#F24E1E" aria-label="Figma">
+                <span class="sw-label">Fig</span>
+                <div class="sw-glow"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SETUP
+         ═══════════════════════════════════════════════════ -->
+    <div class="h-rule"></div>
+
+    <section class="setup reveal-up" id="setup" aria-label="Hardware setup">
+        <div class="setup-box">
+            <div class="corner tl" aria-hidden="true"></div>
+            <div class="corner tr" aria-hidden="true"></div>
+            <div class="corner bl" aria-hidden="true"></div>
+            <div class="corner br" aria-hidden="true"></div>
+
+            <div class="setup-head">
+                <h2>SETUP</h2>
+                <span class="setup-tag">Hardware</span>
+            </div>
+
+            <div class="setup-body">
+                <div class="setup-specs">
+                    <div class="spec-item" style="--i:0">
+                        <h3>MAIN</h3>
+                        <p>RYZEN 7 5800X3D<br>64GB RAM DDR5 6800MHZ<br>4080 SUPER PNY XLR8</p>
+                    </div>
+                    <div class="spec-item" style="--i:1">
+                        <h3>BACKUP</h3>
+                        <p>XEON E5 2680V4<br>24GB RAM DDR4 2400MHZ<br>RX 580 ASUS DUAL</p>
+                    </div>
+                    <div class="spec-item" style="--i:2">
+                        <h3>ANYWHERE OFFICE</h3>
+                        <p>RYZEN 7 5800H<br>32GB RAM 3200MHZ<br>RTX 3050</p>
+                    </div>
+                </div>
+                <div class="setup-photo" aria-label="Setup photo">
+                    <img src="setup.jpg" alt="Setup" class="setup-img">
+                    <div class="scan-line" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         PORTFOLIO FOOTER
+         ═══════════════════════════════════════════════════ -->
+    <footer class="portfolio-footer" id="portfolio" aria-label="Portfolio section">
+
+        <div class="footer-vimeo-wrap">
+            <div class="footer-vimeo-sizer">
+                <iframe
+                    src="https://player.vimeo.com/video/1190592179?badge=0&autopause=0&background=1&autoplay=1&loop=1&muted=1&player_id=footer&app_id=58479"
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                    title="Portfolio background">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="footer-overlay" aria-hidden="true"></div>
+
+        <div class="footer-body">
+            <h2 class="footer-title reveal-word">PORTFOLIO</h2>
+            <p class="footer-sub reveal-sub">COMING SOON</p>
+        </div>
+
+    </footer>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
