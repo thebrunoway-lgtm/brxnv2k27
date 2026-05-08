@@ -3,27 +3,38 @@
    ================================================================ */
 @font-face {
     font-family: 'NewBlack';
-    src: url('Newblack/WOFF&WOFF2/NewBlackTypeface-ExtraBold.woff2') format('woff2'),
-         url('Newblack/OTF/NewBlackTypeface-ExtraBold.otf') format('opentype');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
+    src: url('Newblack/WOFF2/NewBlackTypeface-UltraLight.woff2') format('woff2');
+    font-weight: 200; font-style: normal; font-display: swap;
 }
 @font-face {
     font-family: 'NewBlack';
-    src: url('Newblack/WOFF&WOFF2/NewBlackTypeface-Bold.woff2') format('woff2'),
-         url('Newblack/OTF/NewBlackTypeface-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+    src: url('Newblack/WOFF2/NewBlackTypeface-Light.woff2') format('woff2');
+    font-weight: 300; font-style: normal; font-display: swap;
 }
 @font-face {
     font-family: 'NewBlack';
-    src: url('Newblack/WOFF&WOFF2/NewBlackTypeface-Regular.woff2') format('woff2'),
-         url('Newblack/OTF/NewBlackTypeface-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+    src: url('Newblack/WOFF2/NewBlackTypeface-Regular.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'NewBlack';
+    src: url('Newblack/WOFF2/NewBlackTypeface-Medium.woff2') format('woff2');
+    font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'NewBlack';
+    src: url('Newblack/WOFF2/NewBlackTypeface-SemiBold.woff2') format('woff2');
+    font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'NewBlack';
+    src: url('Newblack/WOFF2/NewBlackTypeface-Bold.woff2') format('woff2');
+    font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'NewBlack';
+    src: url('Newblack/WOFF2/NewBlackTypeface-ExtraBold.woff2') format('woff2');
+    font-weight: 800; font-style: normal; font-display: swap;
 }
 
 /* ================================================================
@@ -126,8 +137,8 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);
-    width: 100vw;
-    height: 180.6vw;
+    width: max(100vw, 55.4vh);
+    height: max(180.6vw, 100vh);
 }
 .hero-vimeo-sizer iframe {
     position: absolute; inset: 0;
@@ -344,7 +355,7 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
     display: flex; align-items: center; gap: 1.25rem; margin-bottom: 2.5rem;
 }
 .section-box-head h2 {
-    font-family: var(--font-h); font-size: 2.5rem; font-weight: 900; letter-spacing: -1px;
+    font-family: var(--font-h); font-size: 2.5rem; font-weight: 800; letter-spacing: -1px;
 }
 
 .about-copy { color: var(--fg-muted); line-height: 1.9; font-size: 1rem; font-weight: 300; }
@@ -464,7 +475,7 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
 .corner.bl { bottom: 14px; left: 14px; transform: rotate(-90deg); }
 .corner.br { bottom: 14px; right: 14px; transform: rotate(180deg); }
 .setup-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 3rem; }
-.setup-head h2 { font-family: var(--font-h); font-size: 2.5rem; font-weight: 900; letter-spacing: -1px; }
+.setup-head h2 { font-family: var(--font-h); font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; }
 .setup-body { display: flex; gap: 4rem; }
 .setup-specs { flex: 1; display: flex; flex-direction: column; gap: 2rem; }
 .spec-item {
@@ -510,7 +521,8 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
 .footer-vimeo-sizer {
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%,-50%);
-    width: 100vw; height: 180.6vw;
+    width: max(100vw, 44.4vh);
+    height: max(180.6vw, 80vh);
 }
 .footer-vimeo-sizer iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 .footer-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(0,0,0,.52); pointer-events: none; }
@@ -539,11 +551,24 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
 .reveal-left.in-view, .reveal-right.in-view, .reveal-up.in-view { opacity: 1; transform: translate(0); }
 
 /* ================================================================
+   SW-ICON TOUCH ACTIVE STATE
+   ================================================================ */
+.sw-icon.sw-active {
+    animation: none !important;
+}
+.sw-icon.sw-active::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 @media (max-width: 900px) {
     body { cursor: auto; }
     .cursor-dot, .cursor-ring { display: none; }
+
+    .scroll-cue { display: none; }
 
     .hero-bar {
         flex-direction: column;
@@ -553,6 +578,8 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
     }
     .hero-title { font-size: clamp(4.5rem, 22vw, 8rem); letter-spacing: -2px; }
     .hero-right { align-items: flex-start; }
+    .sub-line { font-size: .68rem; }
+    .hero-cta { padding: .85rem 1.6rem; min-height: 44px; }
 
     .about-exp { flex-direction: column; gap: 2.5rem; padding: 4rem 5%; }
     .section-box { padding: 2rem; }
@@ -564,4 +591,46 @@ body.cur-click .cursor-ring { width: 26px; height: 26px; background: rgba(255,25
 
     .setup-box { padding: 2rem; }
     .setup-body { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+    .hero-bar {
+        padding: 0 5% max(2.5rem, env(safe-area-inset-bottom, 2rem));
+        gap: 1rem;
+    }
+    .hero-title { font-size: clamp(3.6rem, 20vw, 6.5rem); letter-spacing: -1.5px; }
+    .sub-line { font-size: .65rem; letter-spacing: 2px; }
+    .hero-cta { padding: .9rem 1.4rem; font-size: .7rem; }
+
+    .about-exp { padding: 3rem 5%; gap: 1.8rem; }
+    .section-box { padding: 1.5rem; border-radius: 14px; }
+    .section-box-head h2 { font-size: 1.4rem; }
+    .about-copy { font-size: .88rem; line-height: 1.8; }
+
+    .softwares { padding: 3rem 5%; }
+    .sw-icon { width: 66px; height: 66px; border-radius: 16px; }
+    .sw-label { font-size: 1.1rem; }
+    .sw-grid { gap: .9rem; }
+
+    .setup { padding: 2.5rem 5%; }
+    .setup-box { padding: 1.5rem; border-radius: 14px; }
+    .setup-head h2 { font-size: 1.4rem; }
+    .setup-photo { min-height: 200px; }
+    .spec-item p { font-size: .8rem; }
+
+    .portfolio-footer { height: 60vh; }
+    .footer-vimeo-sizer {
+        width: max(100vw, 33.2vh);
+        height: max(180.6vw, 60vh);
+    }
+
+    .brands-marquee::before,
+    .brands-marquee::after { width: 80px; }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: clamp(3.2rem, 18vw, 5.5rem); }
+    .sw-icon { width: 58px; height: 58px; border-radius: 12px; }
+    .sw-label { font-size: .95rem; }
+    .sw-grid { gap: .65rem; }
 }

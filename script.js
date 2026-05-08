@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(lerpRing);
         })();
 
-        document.querySelectorAll('a, button, .brand').forEach(el => {
+        document.querySelectorAll('a, button, .brand-logo-img, .sw-icon').forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('cur-hover'));
             el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
         });
@@ -81,11 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         heroTitle.addEventListener('mouseenter', startSwap);
         heroTitle.addEventListener('mouseleave', resetLetters);
+
+        heroTitle.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            startSwap();
+            setTimeout(resetLetters, 700);
+        }, { passive: false });
     }
 
     // ================================================================
-    // SOFTWARE ICONS — per-brand colour + glow on hover
+    // SOFTWARE ICONS — per-brand colour + glow on hover / touch
     // ================================================================
+    let activeTouchIcon = null;
+
     document.querySelectorAll('.sw-icon').forEach(icon => {
         const color = icon.dataset.color || '#fff';
         const label = icon.querySelector('.sw-label');
@@ -93,25 +101,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (glow) glow.style.boxShadow = `0 0 40px ${color}55, 0 0 80px ${color}22`;
 
-        icon.addEventListener('mouseenter', () => {
+        function activateIcon() {
             icon.style.background  = `color-mix(in srgb, ${color} 9%, #0d0d0d)`;
             icon.style.borderColor = `${color}55`;
             icon.style.boxShadow   = `0 20px 50px ${color}30, 0 0 0 1px ${color}25`;
             if (label) label.style.color = color;
             if (glow)  glow.style.opacity = '1';
-        });
+            icon.classList.add('sw-active');
+        }
 
-        icon.addEventListener('mouseleave', () => {
+        function deactivateIcon() {
             icon.style.background  = '';
             icon.style.borderColor = '';
             icon.style.boxShadow   = '';
             if (label) label.style.color = '';
             if (glow)  glow.style.opacity = '0';
-        });
+            icon.classList.remove('sw-active');
+        }
+
+        icon.addEventListener('mouseenter', activateIcon);
+        icon.addEventListener('mouseleave', deactivateIcon);
+
+        icon.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            if (activeTouchIcon === icon) {
+                deactivateIcon();
+                activeTouchIcon = null;
+            } else {
+                if (activeTouchIcon) {
+                    const prev = activeTouchIcon;
+                    const prevLabel = prev.querySelector('.sw-label');
+                    const prevGlow  = prev.querySelector('.sw-glow');
+                    prev.style.background = prev.style.borderColor = prev.style.boxShadow = '';
+                    if (prevLabel) prevLabel.style.color = '';
+                    if (prevGlow)  prevGlow.style.opacity = '0';
+                    prev.classList.remove('sw-active');
+                }
+                activateIcon();
+                activeTouchIcon = icon;
+            }
+        }, { passive: false });
 
         icon.addEventListener('pointerdown', () => { icon.style.transform = 'translateY(-8px) scale(0.91)'; });
         icon.addEventListener('pointerup',   () => { icon.style.transform = ''; });
     });
+
+    document.addEventListener('touchstart', (e) => {
+        if (activeTouchIcon && !activeTouchIcon.contains(e.target)) {
+            const prev = activeTouchIcon;
+            const prevLabel = prev.querySelector('.sw-label');
+            const prevGlow  = prev.querySelector('.sw-glow');
+            prev.style.background = prev.style.borderColor = prev.style.boxShadow = '';
+            if (prevLabel) prevLabel.style.color = '';
+            if (prevGlow)  prevGlow.style.opacity = '0';
+            prev.classList.remove('sw-active');
+            activeTouchIcon = null;
+        }
+    }, { passive: true });
 
     // ================================================================
     // EXPERIENCE BARS — set CSS custom property for animated width
@@ -124,11 +170,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // ================================================================
     // SCROLL REVEAL — Intersection Observer
     // ================================================================
+    const isMobile = window.innerWidth <= 600;
+
     const revealObs = new IntersectionObserver(entries => {
         entries.forEach(e => {
             if (e.isIntersecting) { e.target.classList.add('in-view'); revealObs.unobserve(e.target); }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: isMobile ? 0.05 : 0.15 });
 
     document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up').forEach(el => revealObs.observe(el));
 
@@ -136,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(e => {
             if (e.isIntersecting) { e.target.classList.add('in-view'); itemObs.unobserve(e.target); }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: isMobile ? 0.02 : 0.1 });
 
     document.querySelectorAll('.exp-item, .spec-item').forEach(el => itemObs.observe(el));
 
@@ -144,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(e => {
             e.target.classList.toggle('in-view', e.isIntersecting);
         });
-    }, { threshold: 0.2 });
+    }, { threshold: isMobile ? 0.1 : 0.2 });
 
     document.querySelectorAll('.footer-title, .footer-sub').forEach(el => footerObs.observe(el));
 
