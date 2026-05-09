@@ -196,4 +196,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll('.footer-title, .footer-sub').forEach(el => footerObs.observe(el));
 
+    // ================================================================
+    // FOOTER TITLE — letter swap (same as hero, pool = PORTFOLIO chars)
+    // ================================================================
+    const footerTitle = document.querySelector('.footer-title');
+    if (footerTitle) {
+        const ftLetters  = footerTitle.querySelectorAll('.hl');
+        const FT_POOL    = ['P','O','R','T','F','L','I'];
+        const ftOriginals = Array.from(ftLetters).map(l => l.textContent);
+        let ftTimers = [];
+        let ftHovering = false;
+
+        function ftClearTimers() { ftTimers.forEach(t => clearTimeout(t)); ftTimers = []; }
+
+        function ftStartSwap() {
+            if (ftHovering) return;
+            ftHovering = true;
+            ftClearTimers();
+            ftLetters.forEach((letter, i) => {
+                const orig = ftOriginals[i];
+                const duration = 400 + i * 30;
+                const interval = 50;
+                const start = performance.now();
+                const tick = () => {
+                    if (performance.now() - start >= duration) { letter.textContent = orig; return; }
+                    let next;
+                    do { next = FT_POOL[Math.floor(Math.random() * FT_POOL.length)]; }
+                    while (next === letter.textContent && FT_POOL.length > 1);
+                    letter.textContent = next;
+                    ftTimers.push(setTimeout(tick, interval));
+                };
+                ftTimers.push(setTimeout(tick, i * 40));
+            });
+        }
+
+        function ftReset() {
+            ftHovering = false;
+            ftClearTimers();
+            ftLetters.forEach((l, i) => l.textContent = ftOriginals[i]);
+        }
+
+        footerTitle.addEventListener('mouseenter', ftStartSwap);
+        footerTitle.addEventListener('mouseleave', ftReset);
+        footerTitle.addEventListener('touchstart', (e) => {
+            e.preventDefault(); ftStartSwap(); setTimeout(ftReset, 700);
+        }, { passive: false });
+    }
+
+    // ================================================================
+    // BRANDS MARQUEE — reverse direction on rightward mouse movement
+    // ================================================================
+    const marqueeInner = document.querySelector('.marquee-inner');
+    const marqueeSec   = document.querySelector('.brands-marquee');
+
+    if (marqueeInner && marqueeSec) {
+        let lastX = null;
+
+        marqueeSec.addEventListener('mousemove', e => {
+            if (lastX !== null) {
+                const dx = e.clientX - lastX;
+                if (dx > 1)       marqueeInner.classList.add('is-reversed');
+                else if (dx < -1) marqueeInner.classList.remove('is-reversed');
+            }
+            lastX = e.clientX;
+        });
+
+        marqueeSec.addEventListener('mouseleave', () => {
+            marqueeInner.classList.remove('is-reversed');
+            lastX = null;
+        });
+    }
+
 });
