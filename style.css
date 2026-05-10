@@ -446,6 +446,7 @@ p.sub-line:hover::after {
     font-family: var(--font-h); font-weight: 700; font-size: 1.6rem;
     position: relative; z-index: 1; pointer-events: none;
     transition: color .25s;
+    color: var(--fg-muted);
 }
 
 .sw-glow {
